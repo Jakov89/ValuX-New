@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StockCompare</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Adding a link to a generic icon library for the search icon, we can refine this later -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Link to Chart.js for graphing -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div id="root">
+        <header class="site-header">
+            <div class="header-container">
+                <div class="logo-nav">
+                    <div class="site-logo">StockCompare</div>
+                    <nav class="main-nav">
+                        <a href="index.html" class="active">Home</a>
+                        <a href="compare.html">Compare</a>
+                        <a href="ask_ai.html">Ask AI</a>
+                        <a href="visualize.html">Visualize</a>
+                    </nav>
+                </div>
+                <div class="header-actions">
+                    <button class="quick-search-btn">
+                        <i class="fas fa-search"></i> Quick Search
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <section class="hero-section">
+                <div class="hero-content">
+                    <h1>Compare Stocks at a Glance</h1>
+                    <p>Search, compare, and analyze stock performance with our cutting-edge comparison tools.</p>
+                    <div class="hero-search-bar">
+                        <input type="text" placeholder="Search by company name or symbol">
+                        <button>
+                            <i class="fas fa-search"></i> Search
+                        </button>
+                    </div>
+                    <div id="ticker-search-results" class="ticker-results-container"></div>
+                </div>
+            </section>
+            
+            <section class="features-section">
+                <div class="feature-card">
+                    <h2>Ask AI</h2>
+                    <p>Get AI-powered insights and analysis for any stock. Understand complex financial data effortlessly.</p>
+                    <a href="ask_ai.html" class="feature-card-button-link" role="button">Get AI Analysis</a>
+                </div>
+                
+                <div class="feature-card">
+                    <h2>Compare</h2>
+                    <p>Select up to 6 stocks to compare performance, trends, and key financial metrics side-by-side.</p>
+                    <a href="compare.html" class="feature-card-button-link" role="button">Start Comparing</a>
+                </div>
+                
+                <div class="feature-card">
+                    <h2>Visualize</h2>
+                    <p>See interactive charts that show historical performance and help you spot patterns and trends.</p>
+                    <a href="visualize.html" class="feature-card-button-link" role="button">View Charts</a>
+                </div>
+            </section>
+
+            <section id="financial-details-section" class="financial-details-modal" style="display: none;">
+                <div class="modal-content">
+                    <button class="modal-close-btn">&times;</button>
+                    <div id="modal-financial-content">
+                        <!-- Content will be dynamically inserted here by JavaScript -->
+                        <!-- e.g., <h2>Financial Details for [TICKER]</h2> -->
+                        <!-- Tables for Balance Sheet, Income Statement, etc. -->
+                        <!-- Canvas elements for charts -->
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <footer class="site-footer-bottom">
+            <p>&copy; 2024 StockCompare. All rights reserved.</p>
+        </footer>
+    </div>
+    <div id="custom-tooltip" style="display: none; position: absolute; z-index: 1000;"></div>
+    <script src="script.js"></script>
+</body>
+</html> 

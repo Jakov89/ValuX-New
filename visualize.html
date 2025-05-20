@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualize Stock Data - StockCompare</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+</head>
+<body>
+    <div id="root">
+        <header class="site-header">
+            <div class="header-container">
+                <div class="logo-nav">
+                    <div class="site-logo">StockCompare</div>
+                    <nav class="main-nav">
+                        <a href="index.html">Home</a>
+                        <a href="compare.html">Compare</a>
+                        <a href="ask_ai.html">Ask AI</a> 
+                        <a href="visualize.html" class="active">Visualize</a> 
+                    </nav>
+                </div>
+                <div class="header-actions">
+                    <button class="quick-search-btn" style="visibility: hidden;"> <!-- Hidden for now -->
+                        <i class="fas fa-search"></i> Quick Search
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <section id="visualize-data-section" class="page-section">
+                <div class="page-container">
+                    <h1 class="page-title">Detailed Stock Visualizations</h1>
+                    <p class="page-subtitle" style="text-align: center; max-width: 700px; margin: 0 auto 2.5rem auto; color: var(--text-secondary);">
+                        Search for a stock to see detailed historical financial charts and key metric trends.
+                    </p>
+                    
+                    <div class="visualize-search-bar">
+                        <input type="text" id="visualize-stock-search-input" placeholder="Search stock for visualization (e.g., AAPL or Apple Inc.)">
+                        <button id="visualize-stock-search-button"><i class="fas fa-chart-pie"></i> Load Charts</button>
+                    </div>
+                    <div id="visualize-ticker-search-results" class="ticker-results-container" style="max-width: 700px; margin-left:auto; margin-right:auto; margin-bottom: 2rem;">
+                        <!-- Ticker suggestions will appear here -->
+                    </div>
+
+                    <div id="charts-display-area">
+                        <!-- Detailed charts will be rendered here by JavaScript -->
+                        <p id="charts-placeholder-message" style="text-align:center; color:var(--text-secondary); font-size: 1.1rem;">
+                            Enter a stock symbol above to load detailed visualizations.
+                        </p>
+                        <!-- Example Chart Containers (to be dynamically added/managed) -->
+                        <!-- 
+                        <div class="chart-wrapper">
+                            <canvas id="incomeStatementChart"></canvas>
+                        </div>
+                        <div class="chart-wrapper">
+                            <canvas id="balanceSheetChart"></canvas>
+                        </div>
+                        <div class="chart-wrapper">
+                            <canvas id="cashFlowChart"></canvas>
+                        </div>
+                        <div class="chart-wrapper">
+                            <canvas id="keyMetricsChart"></canvas>
+                        </div>
+                         -->
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="site-footer-bottom">
+            <p>&copy; 2024 StockCompare. All rights reserved.</p>
+        </footer>
+    </div>
+    <script src="visualize_script.js"></script> 
+</body>
+</html> 

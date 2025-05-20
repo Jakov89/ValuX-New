@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compare Stocks - StockCompare</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div id="root">
+        <header class="site-header">
+            <div class="header-container">
+                <div class="logo-nav">
+                    <div class="site-logo">StockCompare</div>
+                    <nav class="main-nav">
+                        <a href="index.html">Home</a>
+                        <a href="compare.html" class="active">Compare</a> <!-- Active class for current page -->
+                        <a href="ask_ai.html">Ask AI</a>
+                        <a href="visualize.html">Visualize</a>
+                    </nav>
+                </div>
+                <div class="header-actions">
+                    <!-- Quick Search button might be repurposed or removed on this page -->
+                    <button class="quick-search-btn" style="visibility: hidden;"> <!-- Hidden for now -->
+                        <i class="fas fa-search"></i> Quick Search
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <section id="compare-tool-section" class="page-section">
+                <div class="page-container">
+                    <h1 class="page-title">Compare Stocks (Up to 6)</h1>
+                    
+                    <div class="compare-search-bar" style="margin-bottom: 2rem; max-width: 700px; margin-left:auto; margin-right:auto;">
+                        <input type="text" id="compare-stock-search-input" placeholder="Search stock to add for comparison...">
+                        <button id="compare-stock-search-button"><i class="fas fa-search"></i> Search & Add</button>
+                    </div>
+                    <div id="compare-ticker-search-results" class="ticker-results-container" style="max-width: 700px; margin-left:auto; margin-right:auto;"></div>
+
+                    <div id="selected-stocks-container" style="margin-bottom: 2rem;">
+                        <!-- Selected stocks will be displayed here as cards/tags -->
+                        <h2 style="margin-bottom: 1rem; font-size: 1.5rem;">Selected for Comparison: <span id="selected-stocks-count">0</span>/6</h2>
+                        <div id="selected-stocks-display" class="selected-stocks-grid">
+                            <!-- e.g., <div class="selected-stock-card">AAPL <button class="remove-stock-btn">X</button></div> -->
+                        </div>
+                         <button id="clear-comparison-btn" class="action-button" style="display:none; margin-top:1rem; background-color: var(--border-color);">Clear All</button>
+                    </div>
+
+                    <div id="comparison-table-container">
+                        <!-- Comparison table will be built here by JavaScript -->
+                        <p style="text-align:center; color:var(--text-secondary);">Select stocks to see comparison data.</p>
+                    </div>
+
+                    <hr style="margin: 3rem 0; border-color: var(--border-color);">
+
+                    <div id="comparison-chart-section" style="margin-top: 2rem;">
+                        <h2 style="text-align: center; font-size: 1.8rem; margin-bottom: 1.5rem;">Chart a Specific Metric</h2>
+                        <div class="metric-chart-controls" style="display: flex; justify-content: center; align-items: center; gap: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap;">
+                            <label for="metric-select-dropdown" style="font-size: 1rem;">Select Metric:</label>
+                            <select id="metric-select-dropdown" style="padding: 0.5rem; border-radius: 0.25rem; background: var(--background-light); color: var(--text-primary); border: 1px solid var(--border-color); min-width:200px;">
+                                <!-- Options will be populated by JavaScript -->
+                                <option value="">-- Select a Metric --</option>
+                            </select>
+                            <button id="chart-selected-metric-btn" class="action-button">Chart Selected Metric</button>
+                        </div>
+                        <div id="comparison-metric-chart-container" class="chart-container" style="min-height: 400px; display:none;">
+                            <canvas id="comparisonMetricChart"></canvas>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+        </main>
+
+        <footer class="site-footer-bottom">
+            <p>&copy; 2024 StockCompare. All rights reserved.</p>
+        </footer>
+    </div>
+    <script src="compare_script.js"></script> <!-- New JS file for this page -->
+</body>
+</html> 

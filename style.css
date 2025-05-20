@@ -1,0 +1,803 @@
+/* Basic Reset & Root Variables */
+:root {
+    --primary-color: #8b5cf6; /* Purple accent from image */
+    --primary-color-hover: #7c3aed;
+    --background-dark: #111827; /* Dark background for body */
+    --background-light: #1f2937; /* Slightly lighter for cards/elements */
+    --text-primary: #f9fafb; /* White/very light gray */
+    --text-secondary: #d1d5db; /* Lighter gray for subtitles/secondary text */
+    --border-color: #374151;
+    --font-sans: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Example font stack */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-sans);
+    background-color: var(--background-dark);
+    color: var(--text-primary);
+    line-height: 1.6;
+}
+
+#root {
+    max-width: 100%; /* Changed from 1280px to allow full-width header/footer */
+    margin: 0 auto;
+}
+
+/* Header Styles */
+.site-header {
+    background-color: #fff; /* White background as in image */
+    padding: 1rem 2rem;
+    border-bottom: 1px solid #e5e7eb; /* Light border */
+}
+
+.header-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.site-logo {
+    font-size: 1.75rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.logo-nav {
+    display: flex;
+    align-items: center;
+}
+
+.main-nav {
+    margin-left: 2rem;
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: #374151; /* Dark gray for nav links on white bg */
+    margin-left: 1.5rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.main-nav a:hover {
+    color: var(--primary-color);
+}
+
+.main-nav a.active {
+    color: var(--primary-color);
+    font-weight: bold;
+    border-bottom: 2px solid var(--primary-color);
+}
+
+.quick-search-btn {
+    background-color: #1f2937; /* Dark button */
+    color: var(--text-primary);
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 0.375rem; /* Equivalent to rounded-md */
+    cursor: pointer;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+
+.quick-search-btn:hover {
+    background-color: #374151;
+}
+
+.quick-search-btn .fa-search {
+    margin-right: 0.5rem;
+}
+
+/* General Action Button Style (can be reused) */
+.action-button {
+    background-color: var(--primary-color);
+    color: var(--text-primary);
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    font-weight: 500;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.action-button:hover {
+    background-color: var(--primary-color-hover);
+}
+
+/* Hero Section Styles */
+.hero-section {
+    background: linear-gradient(to bottom, #1e0a33, var(--background-dark)); /* Purple to dark gradient */
+    padding: 5rem 2rem;
+    text-align: center;
+}
+
+.hero-content h1 {
+    font-size: 3rem; /* Large title */
+    font-weight: bold;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    text-shadow: 0 0 10px rgba(139, 92, 246, 0.5); /* Neon glow like in image */
+}
+
+.hero-content p {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    margin-bottom: 2.5rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-search-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: rgba(0,0,0,0.2); /* Slightly transparent black */
+    padding: 0.5rem;
+    border-radius: 0.5rem; /* equivalent to rounded-lg */
+    border: 1px solid var(--border-color);
+}
+
+.hero-search-bar input[type="text"] {
+    flex-grow: 1;
+    padding: 0.75rem 1rem;
+    border: none;
+    background-color: transparent;
+    color: var(--text-primary);
+    font-size: 1rem;
+    outline: none;
+}
+
+.hero-search-bar input[type="text"]::placeholder {
+    color: var(--text-secondary);
+}
+
+.hero-search-bar button {
+    background-color: var(--primary-color);
+    color: var(--text-primary);
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    font-weight: 500;
+    margin-left: 0.5rem;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+
+.hero-search-bar button:hover {
+    background-color: var(--primary-color-hover);
+}
+
+.hero-search-bar button .fa-search {
+    margin-right: 0.5rem;
+}
+
+/* Ticker Search Results Styling */
+.ticker-results-container {
+    max-width: 600px;
+    margin: 1rem auto 0 auto; /* Display below search bar */
+    background-color: var(--background-light);
+    border-radius: 0.5rem;
+    border: 1px solid var(--border-color);
+    max-height: 300px; /* Limit height and make scrollable if many results */
+    overflow-y: auto;
+    transition: background-color 0.2s ease;
+}
+
+.ticker-result-item:last-child {
+    border-bottom: none;
+}
+
+.ticker-result-item .symbol {
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-right: 0.5rem;
+}
+
+.ticker-result-item .name {
+    color: var(--text-secondary);
+}
+
+/* Ticker Search Results Styling Adjustments */
+.ticker-result-item {
+    display: flex; /* Use flexbox to align content and button */
+    justify-content: space-between; /* Pushes content to left, button to right */
+    align-items: center; /* Vertically aligns items */
+    cursor: default; /* Remove default cursor for the whole item, as parts are clickable */
+    border-bottom: 1px solid var(--border-color);
+    transition: background-color 0.2s ease;
+}
+
+.ticker-result-item:hover {
+    background-color: var(--background-light); /* Lighter hover for the whole item */
+}
+
+.ticker-result-item-content {
+    flex-grow: 1; /* Allows content to take available space */
+    cursor: pointer; /* Make only this part clickable for details */
+    padding: 0.25rem 0; /* Add some padding if needed */
+    /* We want to inherit color, but change on hover perhaps */
+}
+.ticker-result-item-content:hover .symbol,
+.ticker-result-item-content:hover .name {
+     color: var(--primary-color-hover); /* Optional: hover effect for text */
+}
+
+
+.ticker-result-item-content .symbol { /* Ensure symbol styling is maintained */
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-right: 0.5rem;
+}
+
+.ticker-result-item-content .name { /* Ensure name styling is maintained */
+    color: var(--text-secondary);
+}
+
+
+.add-to-compare-btn {
+    background-color: var(--primary-color);
+    color: var(--text-primary);
+    border: none;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    margin-left: 1rem; /* Space between stock info and button */
+    white-space: nowrap; /* Prevent button text from wrapping */
+    transition: background-color 0.2s ease;
+}
+
+.add-to-compare-btn:hover {
+    background-color: var(--primary-color-hover);
+}
+
+.add-to-compare-btn .fa-plus-circle {
+    margin-left: 0.3rem;
+}
+
+/* Override the general .ticker-result-item:hover if the button itself is hovered, 
+   to ensure button hover style takes precedence. Optional, but can be cleaner. */
+.ticker-result-item:hover .add-to-compare-btn:hover {
+    background-color: var(--primary-color-hover);
+}
+
+/* Modal Styling for Financial Details */
+.financial-details-modal {
+    display: none; /* Hidden by default, shown by JS */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: hidden; /* Disable scrolling on body when modal is open */
+    background-color: rgba(0,0,0,0.6); /* Black w/ opacity for backdrop */
+    padding-top: 20px; /* Give some space from top for the modal box */
+}
+
+.modal-content {
+    background-color: var(--background-light);
+    margin: 0 auto; /* Centered */
+    padding: 25px;
+    border: 1px solid var(--border-color);
+    border-radius: 0.75rem;
+    width: 90%; /* Could be more specific, e.g., 90vw or a max-width */
+    max-width: 1200px; /* Max width for larger screens */
+    height: calc(100vh - 40px); /* Full height minus padding-top and some bottom space */
+    overflow-y: auto; /* Enable scroll if content is too long */
+    position: relative; /* For positioning the close button */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* Modal Close Button */
+.modal-close-btn {
+    color: var(--text-secondary);
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    font-size: 2.5rem;
+    font-weight: bold;
+    background: none;
+    border: none;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.modal-close-btn:hover,
+.modal-close-btn:focus {
+    color: var(--text-primary);
+    text-decoration: none;
+}
+
+/* Styling for content within the modal (ensure titles/tables look good here) */
+#modal-financial-content h2 {
+    color: var(--primary-color);
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    margin-top: 0; /* Adjust for modal context */
+    text-align: center;
+}
+
+#modal-financial-content h3 {
+    color: var(--text-primary);
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5rem;
+}
+
+
+/* Basic Table Styling (should still apply within modal) */
+.financial-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 2rem;
+    font-size: 0.9rem;
+}
+
+.financial-table th,
+.financial-table td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.financial-table th {
+    background-color: rgba(0,0,0,0.2); /* Slightly darker header for table */
+    color: var(--text-secondary);
+    font-weight: 600;
+}
+
+.financial-table td:first-child {
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.financial-table tr:last-child td {
+    border-bottom: none;
+}
+
+/* Canvas for Charts */
+.chart-container {
+    margin-top: 1.5rem;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background-color: rgba(0,0,0,0.1);
+    border-radius: 0.5rem;
+}
+
+/* Features Section Styles */
+.features-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 3rem 2rem;
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.feature-card {
+    background-color: var(--background-light);
+    padding: 2rem;
+    border-radius: 0.75rem; /* equivalent to rounded-xl */
+    border: 1px solid var(--border-color);
+    text-align: left; /* Align text left within cards as per image */
+    box-shadow: 0 0 15px rgba(139, 92, 246, 0.1); /* Subtle glow */
+}
+
+.feature-card h2 {
+    font-size: 1.75rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    text-shadow: 0 0 5px rgba(139, 92, 246, 0.7);
+}
+
+.feature-card p {
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+}
+
+.feature-card button,
+.feature-card-button-link {
+    background-color: transparent;
+    color: var(--text-primary);
+    border: 1px solid var(--primary-color);
+    padding: 0.6rem 1.2rem;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.feature-card button:hover,
+.feature-card-button-link:hover {
+    background-color: var(--primary-color);
+    color: var(--text-primary);
+}
+
+/* Footer Styles */
+.site-footer-bottom {
+    text-align: center;
+    padding: 2rem;
+    margin-top: 2rem;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    border-top: 1px solid var(--border-color);
+}
+
+/* Styles for compare.html */
+.page-section {
+    padding: 2rem 1rem;
+}
+
+.page-container {
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.page-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--text-primary);
+    text-align: center;
+    margin-bottom: 2rem;
+    text-shadow: 0 0 8px var(--primary-color);
+}
+
+.compare-search-bar {
+    display: flex;
+    gap: 0.5rem; /* Spacing between input and button */
+}
+
+.compare-search-bar input[type="text"] {
+    flex-grow: 1;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--border-color);
+    background-color: rgba(0,0,0,0.2);
+    color: var(--text-primary);
+    font-size: 1rem;
+    border-radius: 0.375rem;
+    outline: none;
+}
+.compare-search-bar input[type="text"]::placeholder {
+    color: var(--text-secondary);
+}
+
+.compare-search-bar button {
+    background-color: var(--primary-color);
+    color: var(--text-primary);
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+
+.compare-search-bar button:hover {
+    background-color: var(--primary-color-hover);
+}
+
+.compare-search-bar button .fa-search {
+    margin-right: 0.5rem;
+}
+
+.selected-stocks-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1rem;
+}
+
+.selected-stock-card {
+    background-color: var(--background-light);
+    border: 1px solid var(--border-color);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.selected-stock-card .remove-stock-btn {
+    background-color: transparent;
+    color: var(--text-secondary);
+    border: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 0.2rem 0.5rem;
+    line-height: 1;
+}
+
+.selected-stock-card .remove-stock-btn:hover {
+    color: #ef4444; /* Red for delete action */
+}
+
+#comparison-table-container table {
+    width: 100%;
+    margin-top: 1rem;
+    border-collapse: collapse;
+}
+
+#comparison-table-container th,
+#comparison-table-container td {
+    border: 1px solid var(--border-color);
+    padding: 0.75rem;
+    text-align: left;
+    min-width: 120px; /* Ensure columns have some width */
+}
+
+#comparison-table-container th {
+    background-color: rgba(0,0,0,0.3);
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+#comparison-table-container td:first-child { /* Metric name column */
+    font-weight: bold;
+    color: var(--text-primary);
+    background-color: rgba(0,0,0,0.1);
+}
+
+/* Ensure ticker search results below compare search are styled if not already covered */
+#compare-ticker-search-results.ticker-results-container {
+    /* Styles are mostly inherited, but can add specific overrides if needed */
+    margin-top: 0.5rem; /* Space below the search bar */
+    max-width: 700px; /* Align with compare search bar width */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Specific styles for ticker result items in the Compare page search */
+#compare-ticker-search-results .ticker-result-item {
+    padding: 0.6rem 1rem; /* Slightly less padding than default */
+    cursor: pointer; /* Make the whole item look clickable */
+    display: block; /* Override flex from general .ticker-result-item if needed */
+    justify-content: flex-start; /* Align content to the start */
+}
+
+#compare-ticker-search-results .ticker-result-item:hover {
+    background-color: var(--primary-color); /* More prominent hover for direct action */
+}
+
+#compare-ticker-search-results .ticker-result-item:hover .symbol,
+#compare-ticker-search-results .ticker-result-item:hover .name {
+    color: var(--text-primary); /* Ensure text is readable on hover */
+}
+
+#compare-ticker-search-results .ticker-result-item .symbol {
+    font-size: 0.95rem;
+}
+
+#compare-ticker-search-results .ticker-result-item .name {
+    font-size: 0.85rem;
+}
+
+/* Custom Tooltip Styles */
+#custom-tooltip {
+    background-color: #2d3748; /* A dark background - using a common dark gray */
+    color: #f9fafb; /* Light text - using a common light gray/white */
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 0.875rem; /* 14px */
+    line-height: 1.4;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2); /* Slightly more pronounced shadow */
+    max-width: 300px; /* Prevent it from getting too wide */
+    pointer-events: none; /* So it doesn't interfere with mouse events on elements below it */
+    opacity: 0;
+    transition: opacity 0.15s ease-in-out, transform 0.15s ease-in-out;
+    transform: scale(0.95);
+    z-index: 1070; /* Ensure it's above most elements, Bootstrap modal z-index is around 1050 */
+}
+
+#custom-tooltip.visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Styling for elements that will trigger tooltips (optional, for visual cues) */
+[data-tooltip-key] {
+    /* Add a subtle underline to indicate interactivity, for example */
+    /* border-bottom: 1px dotted var(--text-secondary); */
+    /* cursor: help; */ /* Changes cursor to a help icon */
+}
+
+/* Ensure table cells with tooltips don't have weird spacing due to strong tags if any */
+.financial-table td[data-tooltip-key] strong {
+    font-weight: normal; /* Or inherit, if you want the strong tag to still apply */
+}
+
+/* If tooltips are on strong tags within P, ensure they are block or inline-block for proper positioning if needed, though usually not necessary for standard flow */
+p > strong[data-tooltip-key] {
+    /* display: inline-block; */ /* Uncomment if positioning issues arise */
+}
+
+/* Styling for AI Analysis Page */
+.ai-search-bar {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.ai-search-bar input[type="text"] {
+    flex-grow: 1;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--border-color);
+    background-color: rgba(0,0,0,0.2);
+    color: var(--text-primary);
+    font-size: 1rem;
+    border-radius: 0.375rem;
+    outline: none;
+}
+.ai-search-bar input[type="text"]::placeholder {
+    color: var(--text-secondary);
+}
+
+.ai-search-bar button {
+    background-color: var(--primary-color);
+    color: var(--text-primary);
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+
+.ai-search-bar button:hover {
+    background-color: var(--primary-color-hover);
+}
+
+.ai-search-bar button .fa-brain {
+    margin-right: 0.5rem; /* Ensuring consistency */
+}
+
+/* Styling for the AI Analysis Output */
+#ai-analysis-results-container {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background-color: var(--background-light); /* Slightly lighter than page bg */
+    border-radius: 0.5rem;
+    border: 1px solid var(--border-color);
+}
+
+.ai-analysis-content h2 {
+    color: var(--primary-color);
+    font-size: 1.8rem; /* Slightly smaller than page title */
+    margin-bottom: 1.5rem;
+    text-align: center;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.75rem;
+}
+
+.ai-analysis-content h3 {
+    font-size: 1.3rem;
+    color: var(--text-primary);
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+    display: flex; /* Align icon and text */
+    align-items: center;
+}
+
+.ai-analysis-content h3 .fas {
+    margin-right: 0.6rem;
+    color: var(--primary-color); /* Icon color */
+    font-size: 1.1em; /* Make icon slightly larger than h3 text */
+}
+
+.ai-analysis-content p {
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+}
+
+.ai-analysis-content ul {
+    list-style: none; /* Remove default bullets */
+    padding-left: 0; /* Remove default padding */
+    margin-bottom: 1.5rem;
+}
+
+.ai-analysis-content ul li {
+    background-color: rgba(0,0,0,0.1); /* Subtle background for list items */
+    padding: 0.75rem 1rem;
+    margin-bottom: 0.5rem;
+    border-radius: 0.375rem;
+    border-left: 3px solid var(--primary-color);
+    color: var(--text-primary);
+}
+
+/* Ensure ticker suggestions on AI page also use the new item content structure if needed */
+#ai-ticker-search-results .ticker-result-item-content .symbol {
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-right: 0.5rem;
+}
+
+#ai-ticker-search-results .ticker-result-item-content .name {
+    color: var(--text-secondary);
+}
+
+/* Custom Tooltip Styles (if we decide to use them on ask_ai.html) */
+/* #custom-tooltip { ... } */
+/* #custom-tooltip.visible { ... } */
+/* [data-tooltip-key] { ... } */
+
+/* Visualize Page Search Bar Styles */
+.visualize-search-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 700px; /* Consistent with other page search bars */
+    margin: 0 auto 2rem auto; /* Centered with bottom margin */
+    background-color: rgba(0,0,0,0.1); /* Slightly transparent black, less than hero */
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--border-color);
+}
+
+.visualize-search-bar input[type="text"] {
+    flex-grow: 1;
+    padding: 0.75rem 1rem;
+    border: none;
+    background-color: transparent;
+    color: var(--text-primary);
+    font-size: 1rem;
+    outline: none;
+}
+
+.visualize-search-bar input[type="text"]::placeholder {
+    color: var(--text-secondary);
+}
+
+.visualize-search-bar button {
+    background-color: var(--primary-color);
+    color: var(--text-primary);
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    font-weight: 500;
+    margin-left: 0.5rem;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+
+.visualize-search-bar button:hover {
+    background-color: var(--primary-color-hover);
+}
+
+.visualize-search-bar button .fa-chart-pie {
+    margin-right: 0.5rem;
+}
+
+/* Custom Tooltip Styles (if we decide to use them on ask_ai.html) */
+/* #custom-tooltip { ... } */
+/* #custom-tooltip.visible { ... } */
+/* [data-tooltip-key] { ... } */
+
+/* End of file */ 
